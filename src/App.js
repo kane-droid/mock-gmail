@@ -1,25 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import EmailList from './EmailList';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <EmailList />
+        <form>
+            <input type='email' id='sender' name='email' value='Senders email'/>
+            <input type='text' id='subject' name='subject' value='subject'/>
+            <input type='text' id='message' name='message' value='message'/>
+            <button type = "submit" href='http://localhost:3001/emails/send'>Send Email</button>
+        </form>
     </div>
   );
 }
 
 export default App;
+
