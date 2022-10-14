@@ -4,15 +4,21 @@ import EmailList from './EmailList';
 
 function App() {
   return (
-    <div className="App">
-        <EmailList />
-        <form>
-            <input type='email' id='sender' name='email' value='Senders email'/>
-            <input type='text' id='subject' name='subject' value='subject'/>
-            <input type='text' id='message' name='message' value='message'/>
-            <button type = "submit" href='http://localhost:3001/emails/send'>Send Email</button>
-        </form>
-    </div>
+      <>
+          <h1>Mock Gmail</h1>
+          <div className="App">
+              <EmailList/>
+              <form>
+                  <input type='email' id='sender' name='email' value='Senders email' onClick={() =>
+                      document.getElementById("sender").value = ""}/>
+                  <input type='text' id='subject' name='subject' value='subject' onClick={() =>
+                      document.getElementById("subject").value = ""}/>
+                  <input type='text' id='message' name='message' value='message' onClick={() =>
+                      document.getElementById("message").value = ""}/>
+                  <button type="submit" href='http://localhost:3001/emails/send'>Send Email</button>
+              </form>
+          </div>
+      </>
   );
 }
 
