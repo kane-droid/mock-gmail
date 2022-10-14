@@ -3,7 +3,6 @@ import './EmailList.css'
 
 
 const EmailList = (props) =>{
-    const[emailList,setEmailList]=useState([]);
     const[email, setEmail] = useState({});
     const[clickedId, setClickedId] = useState(null);
     let url = 'http://localhost:3001/emails';
@@ -14,7 +13,7 @@ useEffect(()=> {
                 return response.json();
             })
             .then(data => {
-                setEmailList(data)
+                props.setEmailList(data)
                 // return emailList;
             })
     },[])
@@ -24,16 +23,16 @@ useEffect(()=> {
 
     return(
         <div >
-           {emailList.map((element) => {
+           {props.emailList.map((element) => {
                if (clickedId === element.id) {
                    return   <li className='list-expanded' key = {element.id}>
-                       Subject: {JSON.stringify(element.subject)}
+                       Subject: {element.subject}
                        {" "}
-                       Sender: {JSON.stringify(element.sender)}
+                       Sender: {element.sender}
                        {" "}
-                       Date: {JSON.stringify(element.date)}
+                       Date: {element.date}
                        {" "}
-                       Message: {JSON.stringify(element.message)}
+                       Message: {element.message}
                             </li>
                } else {
                    return <li className='list' key={element.id} onClick={() => {
@@ -48,10 +47,9 @@ useEffect(()=> {
                                // return specific email;
                            })
                    }}>
-                       Subject: {JSON.stringify(element.subject)}
+                       Subject: {element.subject}
                        {" "}
-                       Sender: {JSON.stringify(element.sender)}
-                       {/*{console.log(email)}*/}
+                       Sender: {element.sender}
                    </li>
                }
            })}

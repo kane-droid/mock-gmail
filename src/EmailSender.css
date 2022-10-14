@@ -1,0 +1,5 @@
+.list{
+    grid-row-start: auto;
+    margin:10px;
+    columns: 1;
+}
