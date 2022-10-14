@@ -18,4 +18,3 @@ const[emailList,setEmailList]=useState([]);
 }
 
 export default App;
-
